@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Trepidation.co.uk Mobile Head Plugin
-Plugin URI: http://strandcreative.com
+Plugin URI: http://trepidationcreative.com
 Description: A plugin by trepidation.co.uk for creating a mobile head
 Author: Colin Gell
 Version: 1.0
@@ -12,224 +12,28 @@ if ( wp_is_mobile() ) {
 
 
 // custom admin CSS
-function hook_css_strand() {
-    ?>
-        <style>
 
-#pagenav{
-display:block; max-width:318px; margin:0 auto; text-align:center;
-}
+add_action('wp_head', 'hook_css_trepidation');
+function hook_css_trepidation() {
 
-ul#dropmenudown li{list-style:none;}
-
-#droptriangle{margin-top:6px;}
-
-#navholder
+function trepidation_css_include()
 {
-display:none;
+    // Register the script like this for a plugin:
+    wp_register_script( 'trepidation-custom-script', plugins_url( '/css/plugin-style.css', __FILE__ ) );
+
+ 
+    // For either a plugin or a theme, you can then enqueue the script:
+    wp_enqueue_script( 'trepidation-custom-script' );
+}
+add_action( 'wp_enqueue_scripts', 'trepidation_css_include' );
 }
 
-.home #navholder
-{
-display:block;
-}
-.home header, .home .entry-content
-{
-max-width:318px;
-margin:0 auto;
-border-width:0px;
-background-color:transparent;
-}
-
-div#pagenav li 
-{
-list-style: none;
-border-radius:2px;list-style:none;
-}
-
-div#pagenav a
-{
-background: #000;
-width: 318px;
-display:block;
-padding: 10px;
-margin:0 auto;
-margin-top: 10px;
-margin-bottom:10px;
-border-radius: 2px;
-color:#fff;
-}
-
-div#pagenav a:hover
-{
-font-weight:900;
-text-decoration: none;
-}
-
-.mobileNavigation
-{
-width:100%;
-height:52px;
-position:absolute;
-top:0;
-background-color:#1B2021;
-z-index:1000;
-}
-
-body.admin-bar .mobileNavigation  
-
-{ top: 32px}
-
-
-.mobileContainer
-{
-width:318px;
-height:52px;
-background-color:#1B2021;
-margin:auto;
-}
-
-.mobileIcon
-{
-width:100%;
-float:left;
-margin:0 auto;
-
+function trepidation_mobile_head() {
+do_action('trepidation_mobile_head');
 }
 
 
-// DROP DOWN MENU //
-.dropdownmenu{display:none}
-
-.dropdownmenu:hover
-{
-display:block;
-}
-
-#dropmenudown
-{
-background-color:transparent;
-color:#fff;
-max-width:200px;
-float:right;
-
-}
-
-#dropmenudown li
-{
-background-color:transparent;
-}
-ul#dropmenudown
-{
-list-style-type:none;padding:0px;
-}
-
-ul#dropmenudown li
-{
-padding:10px;
-list-style-type: none;
-}
-
-ul#dropmenudown a
-{
-color:#fff;
-}
-
-#droptriangle
-{
-width:0;
-height:0;
-border-style:solid;border-width:0 5px 7px;
-border-color:transparent transparent #000;
-background-color:transparent;
-margin-top: 6px;
-}
-
-.site-header {
-background-size: 350px auto !IMPORTANT;
-BACKGROUND-POSITION: CENTER !IMPORTANT;}
-
-#page
-{
-position:relative;
-top:52px;
-}
-
-.button {
-    display: block;
-}
-
-.menu-item i._before 
-{
-margin-left:0px;
-float: left;
-}
-
-#pagenav li a img
-{
-width:32px;  
-  height:32px;
-  margin-left: 0px;
-  float: left;
-}
-
-.menu-item img._before {
-  margin-right: .5em;
-  width: 32px;
-  height: 32px;
-}
-
-
-._mi:before
-{
-font-size:32px;
-}
-
-@media (max-width: 767px)
-{
-.site-header {
-background-size: 350px auto !IMPORTANT;
-BACKGROUND-POSITION: CENTER !IMPORTANT;}
-}
-}
-
-@media (max-width: 643px)
-{
-
-#content .entry-header,#content .entry-content,#content .entry-summary,#content footer.entry-meta,#content .featured-gallery,.search.sidebar .page-content,.blog.sidebar .page-content,.sidebar .post-navigation .nav-links,.paging-navigation .nav-links,#content .author-info,.comments-area .comments-title,.comments-area .comment-list,.comments-area .comment-navigation,.comment-respond,.sidebar .site-info,.sidebar .paging-navigation .nav-links
-{
-padding-left:4px;
-padding-right:4px;
-}
-}
-
-#page
-{
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden; 
-}
-
-
-
-            }
-        </style>
-    <?php
-}
-add_action('wp_head', 'hook_css_strand');
-
-?>
-
-<?php
-
-function strand_mobile_head() {
-do_action('strand_mobile_head');
-}
-
-
-add_action('strand_mobile_head', 'hook_css_mobile_head');
+add_action('trepidation_mobile_head', 'hook_css_mobile_head');
 function hook_css_mobile_head() {
     ?>
 	
