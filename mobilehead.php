@@ -35,6 +35,10 @@ add_action('wp_head', 'hook_css_trepidation');
 function hook_css_trepidation() {    ?>
 
         // css goes here
+		
+		
+ <?php echo get_theme_mod( 'header_add_one', '' ); ?>
+ 
     <?php }
 
 function trepidation_mobile_head() {
@@ -73,11 +77,11 @@ function hook_css_mobile_head() {
 
 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('click to call','','<?php if(get_theme_mod('home-upload')): ?><?php echo get_theme_mod( 'home-upload' ); ?><?php else: ?>
 
-<?php plugins_url('/img/white/home168.png', __FILE__); ?>
+<?php echo plugins_url('/img/white/home168.png', __FILE__); ?>
 
 <?php endif; ?>',1)"><div class="bghover" style="border-radius:5px;  height:48px; width:48px; display:inline-block;"><img src="<?php if(get_theme_mod('home-upload')): ?><?php echo get_theme_mod( 'home-upload' ); ?><?php else: ?>
 
-<?php plugins_url('/img/white/home168.png', __FILE__); ?>
+<?php echo plugins_url('/img/white/home168.png', __FILE__); ?>
 
 
 <?php endif; ?>" alt="home link" width="50" height="47"  style="padding:8px; border-radius:4px; " id="click to call"></div><!-- .bghover --></a> </div><!-- #icon1 -->
@@ -88,11 +92,11 @@ function hook_css_mobile_head() {
 
 <a href="mailto:<?php echo get_theme_mod( 'email_address', 'No Email' ); ?>" onMouseOut="MM_swapImgRestore()" OnMouseOver="MM_swapImage('contact','','<?php if(get_theme_mod('mail-upload')): ?><?php echo get_theme_mod( 'mail-upload' ); ?><?php else: ?>
 
-<?php plugins_url('/img/white/mail59.png', __FILE__); ?>
+<?php echo plugins_url('/img/white/mail59.png', __FILE__); ?>
 
 <?php endif; ?>',1)"><div class="bghover" style="border-radius:5px; height:48px; width:48px; display:inline-block;"><img src="<?php if(get_theme_mod('mail-upload')): ?><?php echo get_theme_mod( 'mail-upload' ); ?><?php else: ?>
 
-<?php plugins_url('/img/white/mail59.png', __FILE__); ?>
+<?php echo plugins_url('/img/white/mail59.png', __FILE__); ?>
 
 <?php endif; ?>" alt="email" width="50" height="47" style="padding:8px; border-radius:4px;" id="contact"></div><!-- .bghover --></a></div><!-- #icon2 -->
 
@@ -102,11 +106,11 @@ function hook_css_mobile_head() {
 
 <a href="tel:<?php echo get_theme_mod( 'contact_number', 'No contact Number' ); ?>" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('facebook','','<?php if(get_theme_mod('phone-upload')): ?><?php echo get_theme_mod( 'phone-upload' ); ?><?php else: ?>
 
-<?php plugins_url('/img/white/phone16.png', __FILE__); ?>
+<?php echo plugins_url('/img/white/phone16.png', __FILE__); ?>
 
 <?php endif; ?>',1)"><div class="bghover" style="border-radius:5px; height:48px; width:48px; display:inline-block;"><img src="<?php if(get_theme_mod('phone-upload')): ?><?php echo get_theme_mod( 'phone-upload' ); ?><?php else: ?>
 
-<?php plugins_url('/img/white/phone16.png', __FILE__); ?>
+<?php echo plugins_url('/img/white/phone16.png', __FILE__); ?>
 
 <?php endif; ?>" alt="phone" width="50" height="47" style="padding:8px; border-radius:4px;" id="facebook" ></div><!-- .bghover --></a></div><!-- #icon3 -->
 
@@ -116,11 +120,11 @@ function hook_css_mobile_head() {
 
  <a href="<?php echo get_theme_mod( 'contact_pagefall', '' ); ?><?php echo get_theme_mod( 'contact_page', '' ); ?>" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('twitter','','<?php if(get_theme_mod('contact-upload')): ?><?php echo get_theme_mod( 'contact-upload' ); ?><?php else: ?>
 
-<?php plugins_url('/img/white/business134.png', __FILE__); ?>
+<?php echo plugins_url('/img/white/business134.png', __FILE__); ?>
 
 <?php endif; ?>',1)"><div class="bghover" style="border-radius:5px;  height:48px; width:48px; display:inline-block;"><img src="<?php if(get_theme_mod('contact-upload')): ?><?php echo get_theme_mod( 'contact-upload' ); ?><?php else: ?>
 
-<?php plugins_url('/img/white/business134.png', __FILE__); ?>
+<?php echo plugins_url('/img/white/business134.png', __FILE__); ?>
 
 <?php endif; ?>" alt="Contact Us" width="50" height="47" style="padding:8px; border-radius:4px;" id="twitter"></div><!-- .bghover --></a></div><!-- #icon4 -->
 
@@ -130,11 +134,11 @@ function hook_css_mobile_head() {
 
 <a href="<?php echo get_theme_mod( 'about_usfall', '' ); ?><?php echo get_theme_mod( 'about_us', '#' ); ?>" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('youTube','','<?php if(get_theme_mod('info-upload')): ?><?php echo get_theme_mod( 'info-upload' ); ?><?php else: ?>
 
-<?php plugins_url('/img/white/info5.png', __FILE__); ?>
+<?php echo plugins_url('/img/white/info5.png', __FILE__); ?>
 
 <?php endif; ?>',1)"><div class="bghover" style="border-radius:5px;  height:48px; width:48px; display:inline-block;"><img src="<?php if(get_theme_mod('info-upload')): ?><?php echo get_theme_mod( 'info-upload' ); ?><?php else: ?>
 
-<?php plugins_url('/img/white/info5.png', __FILE__); ?>
+<?php echo plugins_url('/img/white/info5.png', __FILE__); ?>
 
 <?php endif; ?>" alt="About Us" width="50" height="47" style="padding:8px; border-radius:4px;" id="youTube"></div><!-- .bghover --></a> </div><!-- #icon5 -->
 
@@ -144,7 +148,7 @@ function hook_css_mobile_head() {
 
 <div class="bghover" style="border-radius:5px; height:48px; width:48px; display:inline-block;"><img src="<?php if(get_theme_mod('menu-upload')): ?><?php echo get_theme_mod( 'menu-upload' ); ?><?php else: ?>
 
-<?php plugins_url('/img/white/menu48.png', __FILE__); ?>
+<?php echo plugins_url('/img/white/menu48.png', __FILE__); ?>
 
 <?php endif; ?>" alt="menu" style="  padding:8px;" width="50" height="47" id="maps" class="button" onclick="toggle_visibility('hideMe')" /></div><!-- .bghover --></a> 
 
