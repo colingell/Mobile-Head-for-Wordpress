@@ -17,6 +17,25 @@ Author URI: http:/trepidation.com
 */
 
 
+/* Add hook to after body */
+
+
+add_action('shutdown', function() {
+    $final = '';
+    $levels = ob_get_level();
+    for ($i = 0; $i < $levels; $i++){
+        $final .= ob_get_clean();
+    }
+    echo apply_filters('final_output', $final);
+}, 0);
+
+add_filter('final_output', function($output) {          
+    $after_body = apply_filters('after_body','');
+    $output = preg_replace("/(\<body.*\>)/", "$1".$after_body, $output);
+    return $output;
+});
+
+/* End of add hook to after body */
 
 
 function trepidation_mobile_head_styles()
@@ -80,9 +99,9 @@ function toggle_visibility(id) {
  
     <?php }
 
-function trepidation_mobile_head() {
+function after_body() {
 
-do_action('trepidation_mobile_head');
+do_action('after_body');
 
 }
 
@@ -90,7 +109,7 @@ do_action('trepidation_mobile_head');
 
 
 
-add_action('trepidation_mobile_head', 'hook_css_mobile_head');
+add_action('after_body', 'hook_css_mobile_head');
 
 function hook_css_mobile_head() {
 
