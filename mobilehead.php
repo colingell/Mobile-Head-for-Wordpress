@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: STRANDcreative Mobile Head Plugin
+Plugin Name: Trepidation.co.uk Mobile Head Plugin
 Plugin URI: http://strandcreative.com
-Description: A plugin by Strand Creative for creating a mobile head
+Description: A plugin by trepidation.co.uk for creating a mobile head
 Author: Colin Gell
 Version: 1.0
-Author URI: http:/strandcreative.com
+Author URI: http:/trepidation.co.uk
 */
 
 if ( wp_is_mobile() ) {
