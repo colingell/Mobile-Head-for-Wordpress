@@ -1,0 +1,971 @@
+<?php
+/*
+Plugin Name: STRANDcreative Mobile Head Plugin
+Plugin URI: http://strandcreative.com
+Description: A plugin by Strand Creative for creating a mobile head
+Author: Colin Gell
+Version: 1.0
+Author URI: http:/strandcreative.com
+*/
+
+if ( wp_is_mobile() ) {
+
+
+// custom admin CSS
+function hook_css_strand() {
+    ?>
+        <style>
+
+#pagenav{
+display:block; max-width:318px; margin:0 auto; text-align:center;
+}
+
+ul#dropmenudown li{list-style:none;}
+
+#droptriangle{margin-top:6px;}
+
+#navholder
+{
+display:none;
+}
+
+.home #navholder
+{
+display:block;
+}
+.home header, .home .entry-content
+{
+max-width:318px;
+margin:0 auto;
+border-width:0px;
+background-color:transparent;
+}
+
+div#pagenav li 
+{
+list-style: none;
+border-radius:2px;list-style:none;
+}
+
+div#pagenav a
+{
+background: #000;
+width: 318px;
+display:block;
+padding: 10px;
+margin:0 auto;
+margin-top: 10px;
+margin-bottom:10px;
+border-radius: 2px;
+color:#fff;
+}
+
+div#pagenav a:hover
+{
+font-weight:900;
+text-decoration: none;
+}
+
+.mobileNavigation
+{
+width:100%;
+height:52px;
+position:absolute;
+top:0;
+background-color:#1B2021;
+z-index:1000;
+}
+
+body.admin-bar .mobileNavigation  
+
+{ top: 32px}
+
+
+.mobileContainer
+{
+width:318px;
+height:52px;
+background-color:#1B2021;
+margin:auto;
+}
+
+.mobileIcon
+{
+width:100%;
+float:left;
+margin:0 auto;
+
+}
+
+
+// DROP DOWN MENU //
+.dropdownmenu{display:none}
+
+.dropdownmenu:hover
+{
+display:block;
+}
+
+#dropmenudown
+{
+background-color:transparent;
+color:#fff;
+max-width:200px;
+float:right;
+
+}
+
+#dropmenudown li
+{
+background-color:transparent;
+}
+ul#dropmenudown
+{
+list-style-type:none;padding:0px;
+}
+
+ul#dropmenudown li
+{
+padding:10px;
+list-style-type: none;
+}
+
+ul#dropmenudown a
+{
+color:#fff;
+}
+
+#droptriangle
+{
+width:0;
+height:0;
+border-style:solid;border-width:0 5px 7px;
+border-color:transparent transparent #000;
+background-color:transparent;
+margin-top: 6px;
+}
+
+.site-header {
+background-size: 350px auto !IMPORTANT;
+BACKGROUND-POSITION: CENTER !IMPORTANT;}
+
+#page
+{
+position:relative;
+top:52px;
+}
+
+.button {
+    display: block;
+}
+
+.menu-item i._before 
+{
+margin-left:0px;
+float: left;
+}
+
+#pagenav li a img
+{
+width:32px;  
+  height:32px;
+  margin-left: 0px;
+  float: left;
+}
+
+.menu-item img._before {
+  margin-right: .5em;
+  width: 32px;
+  height: 32px;
+}
+
+
+._mi:before
+{
+font-size:32px;
+}
+
+@media (max-width: 767px)
+{
+.site-header {
+background-size: 350px auto !IMPORTANT;
+BACKGROUND-POSITION: CENTER !IMPORTANT;}
+}
+}
+
+@media (max-width: 643px)
+{
+
+#content .entry-header,#content .entry-content,#content .entry-summary,#content footer.entry-meta,#content .featured-gallery,.search.sidebar .page-content,.blog.sidebar .page-content,.sidebar .post-navigation .nav-links,.paging-navigation .nav-links,#content .author-info,.comments-area .comments-title,.comments-area .comment-list,.comments-area .comment-navigation,.comment-respond,.sidebar .site-info,.sidebar .paging-navigation .nav-links
+{
+padding-left:4px;
+padding-right:4px;
+}
+}
+
+#page
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+
+
+            }
+        </style>
+    <?php
+}
+add_action('wp_head', 'hook_css_strand');
+
+?>
+
+<?php
+
+function strand_mobile_head() {
+do_action('strand_mobile_head');
+}
+
+
+add_action('strand_mobile_head', 'hook_css_mobile_head');
+function hook_css_mobile_head() {
+    ?>
+	
+<div class="hideme">
+<div class="mobileNavigation" style="background-color:<?php echo get_theme_mod( 'color-setting'); ?>;">
+  <div class="mobileContainer" style="background-color:<?php echo get_theme_mod( 'color-setting'); ?>;">
+    <div class="mobileIcon" style="margin-top:2px; display:inline-block; text-align: justify;
+    -ms-text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines;">
+
+<div  id="icon1" style="display:<?php echo get_theme_mod( 'icon_one_off', 'inline-block; *display:block'); ?>; vertical-align: top; zoom:1;"> 
+<a href="<?php echo esc_url( home_url( '/' ) ); ?>" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('click to call','','<?php if(get_theme_mod('home-upload')): ?><?php echo get_theme_mod( 'home-upload' ); ?><?php else: ?>
+/wp-content/themes/Mobile_Theme_by_Colin_Gell/images/white/home168.png
+<?php endif; ?>',1)"><div class="bghover" style="border-radius:5px;  height:48px; width:48px; display:inline-block;"><img src="<?php if(get_theme_mod('home-upload')): ?><?php echo get_theme_mod( 'home-upload' ); ?><?php else: ?>
+/wp-content/themes/Mobile_Theme_by_Colin_Gell/images/white/home168.png
+<?php endif; ?>" alt="home link" width="50" height="47"  style="padding:8px; border-radius:4px; " id="click to call"></div><!-- .bghover --></a> </div><!-- #icon1 -->
+
+<div  id="icon2" style="display:<?php echo get_theme_mod( 'icon_two_off', 'inline-block; *display:block'); ?>; vertical-align: top; zoom:1;"> 
+<a href="mailto:<?php echo get_theme_mod( 'email_address', 'No Email' ); ?>" onMouseOut="MM_swapImgRestore()" OnMouseOver="MM_swapImage('contact','','<?php if(get_theme_mod('mail-upload')): ?><?php echo get_theme_mod( 'mail-upload' ); ?><?php else: ?>
+/wp-content/themes/Mobile_Theme_by_Colin_Gell/images/white/mail59.png
+<?php endif; ?>',1)"><div class="bghover" style="border-radius:5px; height:48px; width:48px; display:inline-block;"><img src="<?php if(get_theme_mod('mail-upload')): ?><?php echo get_theme_mod( 'mail-upload' ); ?><?php else: ?>
+/wp-content/themes/Mobile_Theme_by_Colin_Gell/images/white/mail59.png
+<?php endif; ?>" alt="email" width="50" height="47" style="padding:8px; border-radius:4px;" id="contact"></div><!-- .bghover --></a></div><!-- #icon2 -->
+  
+ <div  id="icon3" style="display:<?php echo get_theme_mod( 'icon_three_off', 'inline-block; *display:block'); ?>; vertical-align: top; zoom:1;">    
+<a href="tel:<?php echo get_theme_mod( 'contact_number', 'No contact Number' ); ?>" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('facebook','','<?php if(get_theme_mod('phone-upload')): ?><?php echo get_theme_mod( 'phone-upload' ); ?><?php else: ?>
+/wp-content/themes/Mobile_Theme_by_Colin_Gell/images/white/phone16.png
+<?php endif; ?>',1)"><div class="bghover" style="border-radius:5px; height:48px; width:48px; display:inline-block;"><img src="<?php if(get_theme_mod('phone-upload')): ?><?php echo get_theme_mod( 'phone-upload' ); ?><?php else: ?>
+/wp-content/themes/Mobile_Theme_by_Colin_Gell/images/white/phone16.png
+<?php endif; ?>" alt="phone" width="50" height="47" style="padding:8px; border-radius:4px;" id="facebook" ></div><!-- .bghover --></a></div><!-- #icon3 -->
+    
+<div  id="icon4" style="display:<?php echo get_theme_mod( 'icon_four_off', 'inline-block; *display:block'); ?>; vertical-align: top; zoom:1;"> 
+ <a href="<?php echo get_theme_mod( 'contact_pagefall', '' ); ?><?php echo get_theme_mod( 'contact_page', '' ); ?>" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('twitter','','<?php if(get_theme_mod('contact-upload')): ?><?php echo get_theme_mod( 'contact-upload' ); ?><?php else: ?>
+/wp-content/themes/Mobile_Theme_by_Colin_Gell/images/white/business134.png
+<?php endif; ?>',1)"><div class="bghover" style="border-radius:5px;  height:48px; width:48px; display:inline-block;"><img src="<?php if(get_theme_mod('contact-upload')): ?><?php echo get_theme_mod( 'contact-upload' ); ?><?php else: ?>
+/wp-content/themes/Mobile_Theme_by_Colin_Gell/images/white/business134.png
+<?php endif; ?>" alt="Contact Us" width="50" height="47" style="padding:8px; border-radius:4px;" id="twitter"></div><!-- .bghover --></a></div><!-- #icon4 -->
+    
+<div  id="icon5" style="display:<?php echo get_theme_mod( 'icon_five_off', 'inline-block; *display:block'); ?>; vertical-align: top; zoom:1;"> 
+<a href="<?php echo get_theme_mod( 'about_usfall', '' ); ?><?php echo get_theme_mod( 'about_us', '#' ); ?>" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('youTube','','<?php if(get_theme_mod('info-upload')): ?><?php echo get_theme_mod( 'info-upload' ); ?><?php else: ?>
+/wp-content/themes/Mobile_Theme_by_Colin_Gell/images/white/info5.png
+<?php endif; ?>',1)"><div class="bghover" style="border-radius:5px;  height:48px; width:48px; display:inline-block;"><img src="<?php if(get_theme_mod('info-upload')): ?><?php echo get_theme_mod( 'info-upload' ); ?><?php else: ?>
+/wp-content/themes/Mobile_Theme_by_Colin_Gell/images/white/info5.png
+<?php endif; ?>" alt="About Us" width="50" height="47" style="padding:8px; border-radius:4px;" id="youTube"></div><!-- .bghover --></a> </div><!-- #icon5 -->
+    
+<div  id="icon6" style="display:<?php echo get_theme_mod( 'icon_six_off', 'inline-block; *display:block'); ?>; vertical-align: top; zoom:1;">
+<div class="bghover" style="border-radius:5px; height:48px; width:48px; display:inline-block;"><img src="<?php if(get_theme_mod('menu-upload')): ?><?php echo get_theme_mod( 'menu-upload' ); ?><?php else: ?>
+/wp-content/themes/Mobile_Theme_by_Colin_Gell/images/white/menu48.png
+<?php endif; ?>" alt="menu" style="  padding:8px;" width="50" height="47" id="maps" class="button" onclick="toggle_visibility('hideMe')" /></div><!-- .bghover --></a> 
+</div><span class="stretch" style="width: 100%; display: inline-block;font-size: 0;line-height: 0;">
+</div><!-- #icon6 -->
+</div>
+
+<div class="hidemeholder" style="position:absolute; top:52px; width:100%; margin:0 auto;">
+<div id="hideMe"style="display:none; position:relative; width:318px; margin:0 auto;">
+<ul id="dropmenudown" >
+<div id="droptriangle" style="border-color: transparent transparent <?php echo get_theme_mod( 'color-setting'); ?>;"></div>
+  <div id='liholder' style="background:#1b2021; background-color:<?php echo get_theme_mod( 'color-setting'); ?>;" ><?php wp_nav_menu('title_li=&sort_column=menu_order&depth=2'); ?>
+</div><!-- #liholder -->
+
+</ul>
+  </div><!-- #hideMe --></span>
+</div> <!-- .hidemeholder -->
+ </div><! .mobileNavigation -->
+</div>
+</div><! .hideme -->
+
+<?php
+}
+?>
+
+
+<?php
+/**
+ * Adds to Head
+ */
+
+function header_customizer( $wp_customize ) {
+    $wp_customize->add_section(
+        'header_add',
+        array(
+            'title' => 'Add Code between <head></head>',
+            'description' => 'Code can be inserted into the header here.',
+            'priority' => 56,
+        )
+    );
+
+$wp_customize->add_setting(
+    'header_add_one',
+    array(
+        'default' => '',
+    )
+);
+
+$wp_customize->add_control(
+    'header_add_one',
+    array(
+        'label' => 'Add Code to Header',
+        'section' => 'header_add',
+        'type' => 'textarea',
+        'sanitize_callback' => 'example_sanitize_text',
+    )
+);
+}
+add_action( 'customize_register', 'header_customizer' );
+
+
+
+
+
+
+/**
+ * Adds to footer
+ */
+
+function footer_customizer( $wp_customize ) {
+    $wp_customize->add_section(
+        'footer_add',
+        array(
+            'title' => 'Footer Text',
+            'description' => 'Extra Text or code can be added into the footer here',
+            'priority' => 55,
+        )
+    );
+
+$wp_customize->add_setting(
+    'footer_add_one',
+    array(
+        'default' => '',
+    )
+);
+
+$wp_customize->add_control(
+    'footer_add_one',
+    array(
+        'label' => 'Add Code/Text to Footer',
+        'section' => 'footer_add',
+        'type' => 'textarea',
+        'sanitize_callback' => 'example_sanitize_text',
+    )
+);
+}
+add_action( 'customize_register', 'footer_customizer' );
+
+
+
+/**
+ * Adds the individual sections, settings, and controls to the theme customizer
+ */
+function example_customizer( $wp_customize ) {
+    $wp_customize->add_section(
+        'example_section_one',
+        array(
+            'title' => 'Mobile Navigation Bar',
+            'description' => 'This is a settings section.',
+            'priority' => 35,
+        )
+    );
+    
+  
+    
+    
+  $wp_customize->add_setting(
+    'about_us', 
+    array(
+        'sanitize_callback' => 'example_sanitize_integer', 
+    )
+);
+ 
+$wp_customize->add_control(
+    'about_us', 
+    array(
+        'type' => 'dropdown-pages', 
+        'label' => 'Info Page:', 
+        'section' => 'example_section_one', 
+    )
+);  
+
+$wp_customize->add_setting(
+    'about_usfall', 
+    array(
+        'default' => '',
+    )
+);
+ 
+$wp_customize->add_control(
+    'about_usfall', 
+    array(
+        'type' => 'text', 
+        'label' => 'Info Page Fall Back:', 
+        'section' => 'example_section_one', 
+        'sanitize_callback' => 'example_sanitize_text',
+    )
+);
+
+    
+    
+    $wp_customize->add_setting(
+    'contact_number',
+    array(
+        'default' => '',
+    )
+);
+
+$wp_customize->add_control(
+    'contact_number',
+    array(
+        'label' => 'Contact Number',
+        'section' => 'example_section_one',
+        'type' => 'text',
+        'sanitize_callback' => 'example_sanitize_text',
+    )
+);
+    $wp_customize->add_setting(
+    'email_address',
+    array(
+        'default' => '',
+    )
+);
+
+$wp_customize->add_control(
+    'email_address',
+    array(
+        'label' => 'Email Address',
+        'section' => 'example_section_one',
+        'type' => 'text',
+        'sanitize_callback' => 'example_sanitize_text',
+    )
+);
+
+$wp_customize->add_setting(
+    'contact_page', 
+    array(
+        'sanitize_callback' => 'example_sanitize_integer', 
+    )
+);
+ 
+$wp_customize->add_control(
+    'contact_page', 
+    array(
+        'type' => 'dropdown-pages', 
+        'label' => 'Contact Page:', 
+        'section' => 'example_section_one', 
+    )
+);
+
+$wp_customize->add_setting(
+    'contact_pagefall', 
+    array(
+        'default' => '',
+    )
+);
+ 
+$wp_customize->add_control(
+    'contact_pagefall', 
+    array(
+        'type' => 'text', 
+        'label' => 'Contact Page Fall Back:', 
+        'section' => 'example_section_one', 
+        'sanitize_callback' => 'example_sanitize_text',
+    )
+);
+
+
+$wp_customize->add_setting(
+    'color-setting',
+    array(
+        'default' => '#1B2021',
+        'sanitize_callback' => 'sanitize_hex_color',
+    )
+);
+
+$wp_customize->add_control(
+    new WP_Customize_Color_Control(
+        $wp_customize,
+        'color-setting',
+        array(
+            'label' => 'Navigation Color',
+            'section' => 'example_section_one',
+            'settings' => 'color-setting',
+        )
+    )
+);
+
+$wp_customize->add_setting( 'home-upload' );
+ 
+$wp_customize->add_control(
+    new WP_Customize_Image_Control(
+        $wp_customize,
+        'home-upload',
+        array(
+            'label' => '1st Icon Upload - Default home',
+            'section' => 'example_section_one',
+            'settings' => 'home-upload'
+        )
+    )
+);
+$wp_customize->add_setting(
+    'icon_one_off',
+    array(
+        'default' => 'inline-block',
+    )
+);
+ 
+$wp_customize->add_control(
+    'icon_one_off',
+    array(
+        'type' => 'radio',
+        'label' => '1st Icon Turn off',
+        'section' => 'example_section_one',
+        'choices' => array(
+            'inline-block; *display:block' => 'Turn On 1st Icon',
+            'none' => 'Turn Off 1st Icon',           
+            
+        ),
+    )
+);
+
+
+
+$wp_customize->add_setting( 'mail-upload' );
+ 
+$wp_customize->add_control(
+    new WP_Customize_Image_Control(
+        $wp_customize,
+        'mail-upload',
+        array(
+            'label' => '2nd Icon Upload Default email',
+            'section' => 'example_section_one',
+            'settings' => 'mail-upload'
+        )
+    )
+);
+
+$wp_customize->add_setting(
+    'icon_two_off',
+    array(
+        'default' => 'inline-block',
+    )
+);
+ 
+$wp_customize->add_control(
+    'icon_two_off',
+    array(
+        'type' => 'radio',
+        'label' => '2nd Icon Turn off',
+        'section' => 'example_section_one',
+        'choices' => array(
+            'inline-block; *display:block' => 'Turn On 2nd Icon',
+            'none' => 'Turn Off 2nd Icon',           
+            
+        ),
+    )
+);
+
+$wp_customize->add_setting( 'phone-upload' );
+ 
+$wp_customize->add_control(
+    new WP_Customize_Image_Control(
+        $wp_customize,
+        'phone-upload',
+        array(
+            'label' => '3rd Icon Upload - Default phone',
+            'section' => 'example_section_one',
+            'settings' => 'phone-upload'
+        )
+    )
+);
+
+$wp_customize->add_setting(
+    'icon_three_off',
+    array(
+        'default' => 'inline-block',
+    )
+);
+ 
+$wp_customize->add_control(
+    'icon_three_off',
+    array(
+        'type' => 'radio',
+        'label' => '3rd Icon Turn off',
+        'section' => 'example_section_one',
+        'choices' => array(
+            'inline-block; *display:block' => 'Turn On 3rd Icon',
+            'none' => 'Turn Off 3rd Icon',           
+            
+        ),
+    )
+);
+
+$wp_customize->add_setting( 'contact-upload' );
+ 
+$wp_customize->add_control(
+    new WP_Customize_Image_Control(
+        $wp_customize,
+        'contact-upload',
+        array(
+            'label' => '4th Icon Upload - Default Contact',
+            'section' => 'example_section_one',
+            'settings' => 'contact-upload'
+        )
+    )
+);
+
+$wp_customize->add_setting(
+    'icon_four_off',
+    array(
+        'default' => 'inline-block',
+    )
+);
+ 
+$wp_customize->add_control(
+    'icon_four_off',
+    array(
+        'type' => 'radio',
+        'label' => '4th Icon Turn off',
+        'section' => 'example_section_one',
+        'choices' => array(
+            'inline-block; *display:block' => 'Turn On 4th Icon',
+            'none' => 'Turn Off 4th Icon',           
+            
+        ),
+    )
+);
+
+
+$wp_customize->add_setting( 'info-upload' );
+ 
+$wp_customize->add_control(
+    new WP_Customize_Image_Control(
+        $wp_customize,
+        'info-upload',
+        array(
+            'label' => '5th Icon Upload - Default Info',
+            'section' => 'example_section_one',
+            'settings' => 'info-upload'
+        )
+    )
+);
+
+$wp_customize->add_setting(
+    'icon_five_off',
+    array(
+        'default' => 'inline-block',
+    )
+);
+ 
+$wp_customize->add_control(
+    'icon_five_off',
+    array(
+        'type' => 'radio',
+        'label' => '5th Icon Turn off',
+        'section' => 'example_section_one',
+        'choices' => array(
+            'inline-block; *display:block' => 'Turn On 5th Icon',
+            'none' => 'Turn Off 5th Icon',           
+            
+        ),
+    )
+);
+
+$wp_customize->add_setting( 'menu-upload' );
+ 
+$wp_customize->add_control(
+    new WP_Customize_Image_Control(
+        $wp_customize,
+        'menu-upload',
+        array(
+            'label' => '6th Icon Upload - Default Menu',
+            'section' => 'example_section_one',
+            'settings' => 'menu-upload'
+        )
+    )
+);
+$wp_customize->add_setting(
+    'icon_six_off',
+    array(
+        'default' => 'inline-block',
+    )
+);
+ 
+$wp_customize->add_control(
+    'icon_six_off',
+    array(
+        'type' => 'radio',
+        'label' => '6th Icon Turn off',
+        'section' => 'example_section_one',
+        'choices' => array(
+            'inline-block; *display:block' => 'Turn On 6th Icon',
+            'none' => 'Turn Off 6th Icon',           
+            
+        ),
+    )
+);
+
+}
+add_action( 'customize_register', 'example_customizer' );
+
+
+
+function logo_upload( $wp_customize ) {
+    $wp_customize->add_section(
+        'example_section_three',
+        array(
+            'title' => 'Logo',
+            'description' => 'Site logo upload, and position',
+            'priority' => 37,
+        )
+    );
+    $wp_customize->add_setting(
+    'include_page_nav',
+    array(
+        'default' => 'none',
+    )
+);
+
+$wp_customize->add_setting( 'img-upload' );
+ 
+$wp_customize->add_control(
+    new WP_Customize_Image_Control(
+        $wp_customize,
+        'img-upload',
+        array(
+            'label' => 'Logo Upload',
+            'section' => 'example_section_three',
+            'settings' => 'img-upload'
+        )
+    )
+);
+
+$wp_customize->add_setting(
+    'logo_top',
+    array(
+        'default' => 'none',
+    )
+);
+ 
+$wp_customize->add_control(
+    'logo_top',
+    array(
+        'type' => 'radio',
+        'label' => 'Logo Top',
+        'section' => 'example_section_three',
+        'choices' => array(
+            'block' => 'Top Logo On',
+            'none' => 'Top Logo Off',
+           
+            
+        ),
+    )
+);
+
+$wp_customize->add_setting(
+    'logo_bottom',
+    array(
+        'default' => 'none',
+    )
+);
+ 
+$wp_customize->add_control(
+    'logo_bottom',
+    array(
+        'type' => 'radio',
+        'label' => 'Logo Bottom',
+        'section' => 'example_section_three',
+        'choices' => array(
+            'block' => 'Bottom Logo On',
+            'none' => 'Bottom Logo Off',           
+            
+        ),
+    )
+);
+
+$wp_customize->add_setting(
+    'masthead_textarea',
+    array(
+        'default' => '',
+    )
+);
+
+$wp_customize->add_control(
+    'masthead_textarea',
+    array(
+        'label' => 'Place shortcode/text/javascript/html in masthead area',
+        'section' => 'example_section_three',
+        'type' => 'textarea',
+        'sanitize_callback' => 'example_sanitize_text',
+    )
+);
+
+
+
+  
+
+}
+ add_action( 'customize_register', 'logo_upload' );
+
+
+
+
+
+
+function page_navigation( $wp_customize ) {
+    $wp_customize->add_section(
+        'example_section_two',
+        array(
+            'title' => 'Home Page Navigation',
+            'description' => 'This section allows you to turn on the page navigation when a static home page is created.  ',
+            'priority' => 36,
+        )
+    );
+    $wp_customize->add_setting(
+    'include_page_nav',
+    array(
+        'default' => 'none',
+    )
+);
+ 
+$wp_customize->add_control(
+    'include_page_nav',
+    array(
+        'type' => 'radio',
+        'label' => 'Include Page Navigation',
+        'section' => 'example_section_two',
+        'choices' => array(
+            'block' => 'On',
+            'none' => 'Off',
+		
+	            
+        ),
+    )
+);
+
+    
+    }
+        add_action( 'customize_register', 'page_navigation' );
+
+
+
+
+
+
+
+function register_custom_menu_page() {
+    add_menu_page('custom menu title', 'Redirection Code Generator', 'add_users', 'custompage', '_custom_menu_page', 'theme_front_page_settings', null, 82); 
+}
+add_action('admin_menu', 'register_custom_menu_page');
+
+
+
+
+function _custom_menu_page(){
+
+
+
+?>
+    <div class="wrap">
+        <?php screen_icon('themes'); ?> <h2></h2>
+ 
+        <form method="POST" action="">
+            <table class="form-table">
+                <tr valign="top">
+                    <th scope="row">
+                        <label for="desktopurl">
+                            Desktop site URL:
+                        </label> 
+                    </th>
+                    <td>
+                        <input type="text" name="desktopurl" size="25" /><input type="submit" onsubmit="document.getElementById('first').style.display = 'none';document.getElementById('second').style.display = '';"">
+                    </td>
+                </tr>
+            </table>
+            
+        </form>
+    </div>
+<?php
+
+echo("<h2>Redirection Code Generator</h2><p>Please enter the site url of the site you would like the to apply the redirection code too.  Hit submit and below is your redirection code; to apply the code to your website, just cut and, paste the below code between the");
+echo htmlspecialchars (' <head></head> ');
+
+
+
+echo("tags on each page of your website which you'd like to redirect to your new mobile specific site:</p>");
+?><?php
+   echo htmlspecialchars ('<script type="text/javascript"
+src="http://detect.deviceatlas.com/redirect.js?d=http://');
+echo $_POST["desktopurl"];
+echo htmlspecialchars('&m=');
+echo domain_mapping_siteurl('');
+
+echo htmlspecialchars ('"></script>');
+?></div><!-- #first #second -->
+
+<h2>.htaccess Redirection</h2>
+# Set an environment variable for http/https.
+RewriteCond %{HTTPS} =on
+RewriteRule ^(.*)$ - [env=ps:https]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ - [env=ps:http]
+
+# Check if m=1 is set and set cookie 'm' equal to 1.
+RewriteCond %{QUERY_STRING} (^|&)m=1(&|$)
+RewriteRule ^ - [CO=m:1:<?php echo $_POST["desktopurl"]; ?>]
+
+# Check if m=0 is set and set cookie 'm' equal to 0.
+RewriteCond %{QUERY_STRING} (^|&)m=0(&|$)
+RewriteRule ^ - [CO=m:0:<?php echo $_POST["desktopurl"]; ?>]
+
+# Cookie can't be set and read in the same request so check.
+RewriteCond %{QUERY_STRING} (^|&)m=0(&|$)
+RewriteRule ^ - [S=1]
+
+# Check if this looks like a mobile device.
+RewriteCond %{HTTP:x-wap-profile} !^$ [OR]
+RewriteCond %{HTTP_USER_AGENT} "android|blackberry|ipad|iphone|ipod|iemobile|opera mobile|palmos|webos|googlebot-mobile" [NC,OR]
+RewriteCond %{HTTP:Profile} !^$
+# Check if we're not already on the mobile site.
+RewriteCond %{HTTP_HOST} !^m\.
+# Check if cookie is not set to force desktop site.
+RewriteCond %{HTTP_COOKIE} !^.*m=0.*$ [NC]
+# Now redirect to the mobile site preserving http or https.
+RewriteRule ^ %{ENV:ps}://<?php echo domain_mapping_siteurl(''); ?>%{REQUEST_URI} [R,L]
+
+# Check if this looks like a desktop device.
+RewriteCond %{HTTP_USER_AGENT} "!(android|blackberry|ipad|iphone|ipod|iemobile|opera mobile|palmos|webos|googlebot-mobile)" [NC]
+# Check if we're on the mobile site.
+RewriteCond %{HTTP_HOST} ^m\.
+# Check if cookie is not set to force mobile site.
+RewriteCond %{HTTP_COOKIE} !^.*m=1.*$ [NC]
+# Now redirect to the mobile site preserving http or https.
+RewriteRule ^ %{ENV:ps}://<?php echo $_POST["desktopurl"]; ?>%{REQUEST_URI} [R,L]
+
+<h2>Javascript Redirect</h2>
+
+<?php
+echo htmlspecialchars ('
+<script type="text/javascript">  var getStr = window.location.search.substr(1); var getArray = getStr.split ("&"); var get = {}; for ( var i = 0; i < getArray.length; i++) { var tmpArray = getArray[i].split("="); get[tmpArray[0]] = tmpArray[1];}if(/Android|webOS|iPhone|iPod|BlackBerry|IEMobile/i.test(navigator.userAgent)){if(document.URL !="'); echo domain_mapping_siteurl(''); echo htmlspecialchars ('"){if (get.m != "no") {window.location ="'); echo domain_mapping_siteurl(''); echo htmlspecialchars ('";}}}</script>
+');
+}
