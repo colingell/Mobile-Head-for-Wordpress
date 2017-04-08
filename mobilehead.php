@@ -195,7 +195,7 @@ function hook_css_mobile_head() {
 
 </div><!-- #icon6 -->
 
-</div>
+</div><!-- .mobileContainer--> 
 
 
 
@@ -217,13 +217,12 @@ function hook_css_mobile_head() {
 
   </div><!-- #hideMe --></span>
 
-</div> <!-- .hidemeholder -->
 
- </div><! .mobileNavigation -->
+ </div><!-- .mobileNavigation -->
 
-</div>
 
-</div><! .hideme -->
+
+</div><!-- .hideme -->
 
 
 
