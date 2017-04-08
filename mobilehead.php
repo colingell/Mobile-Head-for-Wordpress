@@ -13,9 +13,6 @@ if ( wp_is_mobile() ) {
 
 // custom admin CSS
 
-add_action('wp_head', 'hook_css_trepidation');
-function hook_css_trepidation() {
-
 function trepidation_css_include()
 {
     // Register the script like this for a plugin:
@@ -30,7 +27,7 @@ add_action( 'wp_enqueue_scripts', 'trepidation_css_include' );
 
 function trepidation_mobile_head() {
 do_action('trepidation_mobile_head');
-}
+
 
 
 add_action('trepidation_mobile_head', 'hook_css_mobile_head');
