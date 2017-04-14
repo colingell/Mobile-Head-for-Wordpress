@@ -1,3 +1,0 @@
-IMPORTANT
-
-Requires: <?php trepidation_mobile_head(); ?> inserting into theme file under the opening <body> tags
