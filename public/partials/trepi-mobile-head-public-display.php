@@ -5,11 +5,11 @@
  *
  * This file is used to markup the public-facing aspects of the plugin.
  *
- * @link       http://example.com
+ * @link       http://trepidation.co.uk
  * @since      1.0.0
  *
- * @package    Plugin_Name
- * @subpackage Plugin_Name/public/partials
+ * @package    trepi_mobile_head
+ * @subpackage trepi_mobile_head/public/partials
  */
 ?>
 

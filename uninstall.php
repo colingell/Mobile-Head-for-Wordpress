@@ -19,10 +19,10 @@
  * For more information, see the following discussion:
  * https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/pull/123#issuecomment-28541913
  *
- * @link       http://example.com
+ * @link       http://trepidation.co.uk
  * @since      1.0.0
  *
- * @package    Plugin_Name
+ * @package    trepi_mobile_head
  */
 
 // If uninstall not called from WordPress, then exit.

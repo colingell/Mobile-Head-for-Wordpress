@@ -32,19 +32,19 @@ if ( ! defined( 'WPINC' ) ) {
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-plugin-name-activator.php
+ * This action is documented in includes/class-trepi-mobile-head-activator.php
  */
 function activate_trepi_mobile_head() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-trepi-mobile-head-activator.php';
 	trepi_mobile_head_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-plugin-name-deactivator.php
+ * This action is documented in includes/class-trepi-mobile-head-deactivator.php
  */
 function deactivate_trepi_mobile_head() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-trepi-mobile-head-deactivator.php';
 	trepi_mobile_head_Deactivator::deactivate();
 }
 
@@ -55,7 +55,7 @@ register_deactivation_hook( __FILE__, 'deactivate_trepi_mobile_head' );
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-trepi-mobile-head.php';
 
 /**
  * Begins execution of the plugin.
