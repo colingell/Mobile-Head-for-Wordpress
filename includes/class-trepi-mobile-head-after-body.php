@@ -59,7 +59,7 @@ function trepi_hook_to_after_body() {
 <a href="<?php echo esc_url( home_url( '/' ) ); ?> ">
 <?php if(get_theme_mod('home-upload')) 
 { ?><img src="<?php echo get_theme_mod( 'home-upload' ); ?> "> <?php } else { echo
-"<i class='fa fa-home' style='font-size: 48px;'></i>"; } ?>
+"<i class='fa fa-home' ></i>"; } ?>
 <div class="bghover" style="border-radius:5px;  height:48px; width:48px; display:inline-block;">
 </div><!-- .bghover --></a> </div><!-- #icon1 -->
 
@@ -69,7 +69,7 @@ function trepi_hook_to_after_body() {
 <a href="mailto:<?php echo get_theme_mod( 'email_address', 'No Email' ); ?> ">
 <?php if(get_theme_mod('mail-upload')) 
 { ?><img src="<?php echo get_theme_mod( 'mail-upload' ); ?> "> <?php } else { echo
-"<i class='fa fa-envelope' style='font-size: 48px;'></i>"; } ?>
+"<i class='fa fa-envelope' ></i>"; } ?>
 <div class="bghover" style="border-radius:5px;  height:48px; width:48px; display:inline-block;">
 </div><!-- .bghover --></a> </div><!-- #icon2 -->
 
@@ -79,7 +79,7 @@ function trepi_hook_to_after_body() {
 <a href="tel:<?php echo get_theme_mod( 'contact_number', 'No contact Number' ); ?> ">
 <?php if(get_theme_mod('phone-upload')) 
 { ?><img src="<?php echo get_theme_mod( 'phone-upload' ); ?> "> <?php } else { echo
-"<i class='fa fa-phone' style='font-size: 48px;'></i>"; } ?>
+"<i class='fa fa-phone' ></i>"; } ?>
 <div class="bghover" style="border-radius:5px;  height:48px; width:48px; display:inline-block;">
 </div><!-- .bghover --></a> </div><!-- #icon3 -->
 
@@ -89,7 +89,7 @@ function trepi_hook_to_after_body() {
  <a href="<?php echo get_theme_mod( 'contact_pagefall', '' ); ?><?php echo get_theme_mod( 'contact_page', '' ); ?> ">
 <?php if(get_theme_mod('mail-contact')) 
 { ?><img src="<?php echo get_theme_mod( 'contact-upload' ); ?> "> <?php } else { echo
-"<i class='fa fa-calendar' style='font-size: 48px;'></i>"; } ?>
+"<i class='fa fa-comment' ></i>"; } ?>
 <div class="bghover" style="border-radius:5px;  height:48px; width:48px; display:inline-block;">
 </div><!-- .bghover --></a> </div><!-- #icon4 -->
 
@@ -99,7 +99,7 @@ function trepi_hook_to_after_body() {
 <a href="<?php echo get_theme_mod( 'about_usfall', '' ); echo get_theme_mod( 'about_us', '#' ); ?> ">
 <?php if(get_theme_mod('info-upload')) 
 { ?><img src="<?php echo get_theme_mod( 'info-upload' ); ?> "> <?php } else { echo
-"<i class='fa fa-info' style='font-size: 48px;'></i>"; } ?>
+"<i class='fa fa-info' ></i>"; } ?>
 <div class="bghover" style="border-radius:5px;  height:48px; width:48px; display:inline-block;">
 </div><!-- .bghover --></a> </div><!-- #icon5 -->
     
@@ -107,7 +107,7 @@ function trepi_hook_to_after_body() {
 <div  id="icon6" style="display:<?php echo get_theme_mod( 'icon_six_off', 'inline-block; *display:block'); ?>; vertical-align: top; zoom:1;">
 <div class="bghover" style="border-radius:5px; height:48px; width:48px; display:inline-block;"><?php if(get_theme_mod('info-upload')) 
 { ?><img src="<?php echo get_theme_mod( 'info-upload' ); ?>" id="maps" class="button" onclick="toggle_visibility('hideMe')"> <?php } else { echo
-"<i "; ?> onclick="toggle_visibility('hideMe')" class="fa fa-info button" id="maps" style="font-size: 48px;" ></i> <?php } ?>
+"<i "; ?> onclick="toggle_visibility('hideMe')" class="fa fa-bars button" id="maps" ></i> <?php } ?>
 </div><!-- .bghover --></a> 
 
 </div><span class="stretch" style="width: 100%; display: inline-block;font-size: 0;line-height: 0;">
