@@ -54,6 +54,8 @@ class trepi_mobile_head_Public {
 
 	}
 
+
+
 	/**
 	 * Register the stylesheets for the public-facing side of the site.
 	 *
@@ -97,7 +99,9 @@ class trepi_mobile_head_Public {
 		 */
 
 		wp_enqueue_script( $this->trepi_mobile_head, plugin_dir_url( __FILE__ ) . 'js/trepi-mobile-head-public.js', array( 'jquery' ), $this->version, false );
+}
 
-	}
 
 }
+
+?>
