@@ -124,7 +124,8 @@ function trepi_hook_to_after_body() {
 
 <ul id="dropmenudown" >
 
-<div id="droptriangle" style="border-color: transparent transparent <?php echo get_theme_mod( 'color-setting'); ?>;"></div>
+<div id="droptriangle" style="border-color: transparent transparent <?php if(get_theme_mod('color-setting')) 
+{ echo get_theme_mod( 'color-setting'); } else { ?> #1b2021; <?php } ?> "> </div>
 
   <div id='liholder' style="background:#1b2021; background-color:<?php echo get_theme_mod( 'color-setting'); ?>;" ><?php wp_nav_menu('title_li=&sort_column=menu_order&depth=2'); ?>
 
