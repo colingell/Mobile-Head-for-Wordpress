@@ -3,11 +3,15 @@
  * Adds the individual sections, settings, and controls to the theme customizer
  */
 
-function example_customizer( $wp_customize ) {
+
+
+
+
+function trepi_customizer( $wp_customize ) {
 
     $wp_customize->add_section(
 
-        'example_section_one',
+        'trepi_section_one',
 
         array(
 
@@ -29,19 +33,18 @@ function example_customizer( $wp_customize ) {
 
     
 
-  $wp_customize->add_setting(
 
-    'about_us', 
+     //  ============================
+    //  = Page Dropdown             =
+    //  =============================
 
-    array(
+    $wp_customize->add_setting('trepi_about_us_options', array(
+        'capability'     => 'edit_theme_options',
+        'type'           => 'theme_mod',
+        'default' => '',
 
-        'sanitize_callback' => 'example_sanitize_integer', 
+    ));
 
-    )
-
-);
-
- 
 
 $wp_customize->add_control(
 
@@ -51,9 +54,11 @@ $wp_customize->add_control(
 
         'type' => 'dropdown-pages', 
 
-        'label' => 'Info Page:', 
+        'settings'   => 'trepi_about_us_options',
 
-        'section' => 'example_section_one', 
+        'label' => 'Info Page',
+
+        'section' => 'trepi_section_one', 
 
     )
 
@@ -63,7 +68,7 @@ $wp_customize->add_control(
 
 $wp_customize->add_setting(
 
-    'about_usfall', 
+    'about-usfall', 
 
     array(
 
@@ -77,17 +82,17 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 
-    'about_usfall', 
+    'about-usfall', 
 
     array(
 
         'type' => 'text', 
 
-        'label' => 'Info Page Fall Back:', 
+        'label' => 'Over ride the Info Page link:', 
 
-        'section' => 'example_section_one', 
+        'section' => 'trepi_section_one', 
 
-        'sanitize_callback' => 'example_sanitize_text',
+        'sanitize_callback' => 'esc_url',
 
     )
 
@@ -121,11 +126,11 @@ $wp_customize->add_control(
 
         'label' => 'Contact Number',
 
-        'section' => 'example_section_one',
+        'section' => 'trepi_section_one',
 
         'type' => 'text',
 
-        'sanitize_callback' => 'example_sanitize_text',
+        'sanitize_callback' => 'esc_textarea',
 
     )
 
@@ -153,11 +158,11 @@ $wp_customize->add_control(
 
         'label' => 'Email Address',
 
-        'section' => 'example_section_one',
+        'section' => 'trepi_section_one',
 
         'type' => 'text',
 
-        'sanitize_callback' => 'example_sanitize_text',
+        'sanitize_callback' => 'is_email',
 
     )
 
@@ -165,41 +170,36 @@ $wp_customize->add_control(
 
 
 
-$wp_customize->add_setting(
+     //  ============================
+    //  = Page Dropdown             =
+    //  =============================
 
-    'contact_page', 
+    $wp_customize->add_setting('trepi_contact_page_options', array(
+        'capability'     => 'edit_theme_options',
+        'type'           => 'theme_mod',
+        'default' => '',
+ 
+    ));
 
-    array(
 
-        'sanitize_callback' => 'example_sanitize_integer', 
-
-    )
-
-);
 
  
 
 $wp_customize->add_control(
-
     'contact_page', 
-
     array(
-
         'type' => 'dropdown-pages', 
-
+        'settings'   => 'trepi_contact_page_options',
         'label' => 'Contact Page:', 
-
-        'section' => 'example_section_one', 
-
+        'section' => 'trepi_section_one', 
     )
-
 );
 
 
 
 $wp_customize->add_setting(
 
-    'contact_pagefall', 
+    'contact-pagefall', 
 
     array(
 
@@ -213,17 +213,17 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 
-    'contact_pagefall', 
+    'contact-pagefall', 
 
     array(
 
         'type' => 'text', 
 
-        'label' => 'Contact Page Fall Back:', 
+        'label' => 'Over ride the Contact Page link:', 
 
-        'section' => 'example_section_one', 
+        'section' => 'trepi_section_one', 
 
-        'sanitize_callback' => 'example_sanitize_text',
+        'sanitize_callback' => 'esc_url',
 
     )
 
@@ -261,7 +261,7 @@ $wp_customize->add_control(
 
             'label' => 'Navigation Color',
 
-            'section' => 'example_section_one',
+            'section' => 'trepi_section_one',
 
             'settings' => 'color-setting',
 
@@ -289,7 +289,7 @@ $wp_customize->add_control(
 
             'label' => '1st Icon Upload - Default home',
 
-            'section' => 'example_section_one',
+            'section' => 'trepi_section_one',
 
             'settings' => 'home-upload'
 
@@ -323,7 +323,7 @@ $wp_customize->add_control(
 
         'label' => '1st Icon Turn off',
 
-        'section' => 'example_section_one',
+        'section' => 'trepi_section_one',
 
         'choices' => array(
 
@@ -361,7 +361,7 @@ $wp_customize->add_control(
 
             'label' => '2nd Icon Upload Default email',
 
-            'section' => 'example_section_one',
+            'section' => 'trepi_section_one',
 
             'settings' => 'mail-upload'
 
@@ -397,7 +397,7 @@ $wp_customize->add_control(
 
         'label' => '2nd Icon Turn off',
 
-        'section' => 'example_section_one',
+        'section' => 'trepi_section_one',
 
         'choices' => array(
 
@@ -431,7 +431,7 @@ $wp_customize->add_control(
 
             'label' => '3rd Icon Upload - Default phone',
 
-            'section' => 'example_section_one',
+            'section' => 'trepi_section_one',
 
             'settings' => 'phone-upload'
 
@@ -467,7 +467,7 @@ $wp_customize->add_control(
 
         'label' => '3rd Icon Turn off',
 
-        'section' => 'example_section_one',
+        'section' => 'trepi_section_one',
 
         'choices' => array(
 
@@ -501,7 +501,7 @@ $wp_customize->add_control(
 
             'label' => '4th Icon Upload - Default Contact',
 
-            'section' => 'example_section_one',
+            'section' => 'trepi_section_one',
 
             'settings' => 'contact-upload'
 
@@ -537,7 +537,7 @@ $wp_customize->add_control(
 
         'label' => '4th Icon Turn off',
 
-        'section' => 'example_section_one',
+        'section' => 'trepi_section_one',
 
         'choices' => array(
 
@@ -573,7 +573,7 @@ $wp_customize->add_control(
 
             'label' => '5th Icon Upload - Default Info',
 
-            'section' => 'example_section_one',
+            'section' => 'trepi_section_one',
 
             'settings' => 'info-upload'
 
@@ -609,7 +609,7 @@ $wp_customize->add_control(
 
         'label' => '5th Icon Turn off',
 
-        'section' => 'example_section_one',
+        'section' => 'trepi_section_one',
 
         'choices' => array(
 
@@ -643,7 +643,7 @@ $wp_customize->add_control(
 
             'label' => '6th Icon Upload - Default Menu',
 
-            'section' => 'example_section_one',
+            'section' => 'trepi_section_one',
 
             'settings' => 'menu-upload'
 
@@ -677,7 +677,7 @@ $wp_customize->add_control(
 
         'label' => '6th Icon Turn off',
 
-        'section' => 'example_section_one',
+        'section' => 'trepi_section_one',
 
         'choices' => array(
 
@@ -697,7 +697,7 @@ $wp_customize->add_control(
 
 }
 
-add_action( 'customize_register', 'example_customizer' );
+add_action( 'customize_register', 'trepi_customizer' );
 
 
 
