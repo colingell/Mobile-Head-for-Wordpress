@@ -9,21 +9,7 @@
 
 function footer_customizer( $wp_customize ) {
 
-    $wp_customize->add_section(
 
-        'footer_add',
-
-        array(
-
-            'title' => 'Add Code or Text to footer area',
-
-            'description' => 'Extra Text or code can be added into the footer here',
-
-            'priority' => 57,
-
-        )
-
-    );
 
 
 
@@ -49,7 +35,7 @@ $wp_customize->add_control(
 
         'label' => 'Add Code/Text to Footer',
 
-        'section' => 'footer_add',
+        'section' => 'trepi_section_footer',
 
         'type' => 'textarea',
 

@@ -174,7 +174,7 @@ function trepi_hook_to_after_body() {
 
 <div  id="icon4" style="display:<?php echo get_theme_mod( 'icon_four_off', 'inline-block; *display:block'); ?>; vertical-align: top; zoom:1;"> 
  
- <a href="<?php if(get_theme_mod('contact_pagefall')) { echo get_theme_mod('contact_pagefall'); } else { ?> ?p= <?php echo get_theme_mod('trepi_contact_page_options');} ?> "> 
+ <a href="<?php if( get_theme_mod('contact-pagefall')) { echo get_theme_mod('contact-pagefall', ''); } else { echo get_theme_mod('trepi_contact_page_options', '');} ?> "> 
 
 <?php if(get_theme_mod('mail-contact')) 
 
@@ -194,7 +194,7 @@ function trepi_hook_to_after_body() {
 
 <div  id="icon5" style="display:<?php echo get_theme_mod( 'icon_five_off', 'inline-block; *display:block'); ?>; vertical-align: top; zoom:1;"> 
 
-<a href="<?php if(get_theme_mod('about-usfall')) { echo get_theme_mod('about-usfall', '' ); } else { ?> ?p= <?php echo get_theme_mod('trepi_about_us_options', '' );} ?>" > 
+<a href="<?php if( get_theme_mod('about-usfall')) { echo get_theme_mod('about-usfall', '' ); } else { echo get_theme_mod('trepi_about_us_options', '' );} ?>" > 
 
 <?php if(get_theme_mod('info-upload')) 
 

@@ -6,21 +6,13 @@
 
 
 function header_customizer( $wp_customize ) {
-
     $wp_customize->add_section(
-
         'header_add',
-
         array(
-
             'title' => 'Add Code between <head></head>',
-
             'description' => 'Code can be inserted into the header here.',
-
             'priority' => 56,
-
         )
-
     );
 
 
@@ -47,7 +39,7 @@ $wp_customize->add_control(
 
         'label' => 'Add Code to Header',
 
-        'section' => 'header_add',
+        'section' => 'trepi_section_head',
 
         'type' => 'textarea',
 
@@ -66,8 +58,8 @@ add_action( 'customize_register', 'header_customizer' );
  */
 
 
-add_action('wp_head', 'hook_css_trepidation');
-function hook_css_trepidation() {    ?>
+add_action('wp_head', 'hook_head_trepidation');
+function hook_head_trepidation() {    ?>
 		
  <?php echo get_theme_mod( 'header_add_one', '' ); 
 }

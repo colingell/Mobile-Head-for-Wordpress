@@ -7,7 +7,23 @@
 
 
 
+
+
+
+
 function trepi_customizer( $wp_customize ) {
+
+
+$wp_customize->add_panel( 'panel_Mobile_Nav', array(
+ 'priority'       => 1,
+  'capability'     => 'edit_theme_options',
+  'theme_supports' => '',
+  'title'          => 'Mobile Navigation Bar',
+  'description'    => 'Change settings for each of the Mobile Navigation icons here',
+) 
+);
+
+
 
     $wp_customize->add_section(
 
@@ -15,27 +31,306 @@ function trepi_customizer( $wp_customize ) {
 
         array(
 
-            'title' => 'Mobile Navigation Bar',
+            'title' => 'Home Icon 1',
 
             'description' => 'This is a settings section.',
 
-            'priority' => 35,
+            'priority' => 1,
+            
+            'panel'  => 'panel_Mobile_Nav',
 
         )
 
     );
 
+
+
+    $wp_customize->add_section(
+
+        'trepi_section_two',
+
+        array(
+
+            'title' => 'Email Icon 2',
+
+            'description' => 'This is a settings section.',
+
+            'priority' => 2,
+            
+            'panel'  => 'panel_Mobile_Nav',
+
+        )
+
+    );
     
 
-  
+      $wp_customize->add_section(
+
+        'trepi_section_three',
+
+        array(
+
+            'title' => 'Phone Icon 3',
+
+            'description' => 'This is a settings section.',
+
+            'priority' => 3,
+            
+            'panel'  => 'panel_Mobile_Nav',
+
+        )
+
+    );
+
+
+    $wp_customize->add_section(
+
+        'trepi_section_four',
+
+        array(
+
+            'title' => 'Contact Icon 4',
+
+            'description' => 'This is a settings section.',
+
+            'priority' => 4,
+            
+            'panel'  => 'panel_Mobile_Nav',
+
+        )
+
+    );
+
+
+
+    $wp_customize->add_section(
+
+        'trepi_section_five',
+
+        array(
+
+            'title' => 'Info Icon 5',
+
+            'description' => 'This is a settings section.',
+
+            'priority' => 5,
+            
+            'panel'  => 'panel_Mobile_Nav',
+
+        )
+
+    );
+
+
+    $wp_customize->add_section(
+
+        'trepi_section_six',
+
+        array(
+
+            'title' => 'Menu Icon 6',
+
+            'description' => 'This is a settings section.',
+
+            'priority' => 6,
+            
+            'panel'  => 'panel_Mobile_Nav',
+
+        )
+
+    );  
+
+    $wp_customize->add_section(
+
+        'trepi_section_colours',
+
+        array(
+
+            'title' => 'Navigation Colours',
+
+            'description' => 'This is a settings section.',
+
+            'priority' => 7,
+            
+            'panel'  => 'panel_Mobile_Nav',
+
+        )
+
+    );  
+
+    $wp_customize->add_section(
+
+        'trepi_section_head',
+
+        array(
+
+            'title' => 'Add Custome code to <head> tags',
+
+            'description' => 'This is a settings section.',
+
+            'priority' => 8,
+            
+            'panel'  => 'panel_Mobile_Nav',
+
+        )
+
+    );
+
+    $wp_customize->add_section(
+
+        'trepi_section_footer',
+
+        array(
+
+            'title' => 'Add Custom code or text to footer',
+
+            'description' => 'This is a settings section.',
+
+            'priority' => 9,
+            
+            'panel'  => 'panel_Mobile_Nav',
+
+        )
+
+    );
+
 
     
-
+   // ================================
+   //  Email Link              =
+   // ================================
     
 
+    $wp_customize->add_setting(
+
+    'email_address',
+
+    array(
+
+        'default' => '',
+
+    )
+
+);
+
+
+
+$wp_customize->add_control(
+
+    'email_address',
+
+    array(
+
+        'label' => 'Email Address',
+
+        'section' => 'trepi_section_two',
+
+        'type' => 'text',
+
+        'sanitize_callback' => 'is_email',
+
+    )
+
+);
+
+   // ================================
+   //  Phone Link              =
+   // ================================
+
+$wp_customize->add_setting(
+
+    'contact_number',
+
+    array(
+
+        'default' => '',
+
+    )
+
+);
+
+
+
+$wp_customize->add_control(
+
+    'contact_number',
+
+    array(
+
+        'label' => 'Contact Number',
+
+        'section' => 'trepi_section_three',
+
+        'type' => 'text',
+
+        'sanitize_callback' => 'esc_textarea',
+
+    )
+
+);
 
      //  ============================
     //  = Page Dropdown             =
+    //  =============================
+
+    $wp_customize->add_setting('trepi_contact_page_options', array(
+        'capability'     => 'edit_theme_options',
+        'type'           => 'theme_mod',
+        'default' => '',
+ 
+    ));
+
+
+
+ 
+
+$wp_customize->add_control(
+    'contact_page', 
+    array(
+        'type' => 'dropdown-pages', 
+        'settings'   => 'trepi_contact_page_options',
+        'label' => 'Contact Page:', 
+        'section' => 'trepi_section_four', 
+    )
+);
+
+
+
+$wp_customize->add_setting(
+
+    'contact-pagefall', 
+
+    array(
+
+        'default' => '',
+
+    )
+
+);
+
+ 
+
+$wp_customize->add_control(
+
+    'contact-pagefall', 
+
+    array(
+
+        'type' => 'text', 
+
+        'label' => 'Override the Contact Page link:', 
+
+        'section' => 'trepi_section_four', 
+
+
+
+    )
+
+);
+
+
+ //  ============================
+    //  = About Us             =
     //  =============================
 
     $wp_customize->add_setting('trepi_about_us_options', array(
@@ -58,7 +353,7 @@ $wp_customize->add_control(
 
         'label' => 'Info Page',
 
-        'section' => 'trepi_section_one', 
+        'section' => 'trepi_section_five', 
 
     )
 
@@ -88,149 +383,15 @@ $wp_customize->add_control(
 
         'type' => 'text', 
 
-        'label' => 'Over ride the Info Page link:', 
+        'label' => 'Override the Info Page link:', 
 
-        'section' => 'trepi_section_one', 
+        'section' => 'trepi_section_five', 
 
-        'sanitize_callback' => 'esc_url',
+
 
     )
 
 );
-
-
-
-    
-
-    
-
-    $wp_customize->add_setting(
-
-    'contact_number',
-
-    array(
-
-        'default' => '',
-
-    )
-
-);
-
-
-
-$wp_customize->add_control(
-
-    'contact_number',
-
-    array(
-
-        'label' => 'Contact Number',
-
-        'section' => 'trepi_section_one',
-
-        'type' => 'text',
-
-        'sanitize_callback' => 'esc_textarea',
-
-    )
-
-);
-
-    $wp_customize->add_setting(
-
-    'email_address',
-
-    array(
-
-        'default' => '',
-
-    )
-
-);
-
-
-
-$wp_customize->add_control(
-
-    'email_address',
-
-    array(
-
-        'label' => 'Email Address',
-
-        'section' => 'trepi_section_one',
-
-        'type' => 'text',
-
-        'sanitize_callback' => 'is_email',
-
-    )
-
-);
-
-
-
-     //  ============================
-    //  = Page Dropdown             =
-    //  =============================
-
-    $wp_customize->add_setting('trepi_contact_page_options', array(
-        'capability'     => 'edit_theme_options',
-        'type'           => 'theme_mod',
-        'default' => '',
- 
-    ));
-
-
-
- 
-
-$wp_customize->add_control(
-    'contact_page', 
-    array(
-        'type' => 'dropdown-pages', 
-        'settings'   => 'trepi_contact_page_options',
-        'label' => 'Contact Page:', 
-        'section' => 'trepi_section_one', 
-    )
-);
-
-
-
-$wp_customize->add_setting(
-
-    'contact-pagefall', 
-
-    array(
-
-        'default' => '',
-
-    )
-
-);
-
- 
-
-$wp_customize->add_control(
-
-    'contact-pagefall', 
-
-    array(
-
-        'type' => 'text', 
-
-        'label' => 'Over ride the Contact Page link:', 
-
-        'section' => 'trepi_section_one', 
-
-        'sanitize_callback' => 'esc_url',
-
-    )
-
-);
-
-
-
 
 
 $wp_customize->add_setting(
@@ -261,7 +422,7 @@ $wp_customize->add_control(
 
             'label' => 'Navigation Color',
 
-            'section' => 'trepi_section_one',
+            'section' => 'trepi_section_colours',
 
             'settings' => 'color-setting',
 
@@ -287,7 +448,7 @@ $wp_customize->add_control(
 
         array(
 
-            'label' => '1st Icon Upload - Default home',
+            'label' => 'Replace 1st Icon- Default home',
 
             'section' => 'trepi_section_one',
 
@@ -321,7 +482,7 @@ $wp_customize->add_control(
 
         'type' => 'radio',
 
-        'label' => '1st Icon Turn off',
+        'label' => 'Remove 1st Icon',
 
         'section' => 'trepi_section_one',
 
@@ -359,9 +520,9 @@ $wp_customize->add_control(
 
         array(
 
-            'label' => '2nd Icon Upload Default email',
+            'label' => 'Replace 2nd Icon - Default email',
 
-            'section' => 'trepi_section_one',
+            'section' => 'trepi_section_two',
 
             'settings' => 'mail-upload'
 
@@ -395,9 +556,9 @@ $wp_customize->add_control(
 
         'type' => 'radio',
 
-        'label' => '2nd Icon Turn off',
+        'label' => 'Remove 2nd Icon',
 
-        'section' => 'trepi_section_one',
+        'section' => 'trepi_section_two',
 
         'choices' => array(
 
@@ -429,9 +590,9 @@ $wp_customize->add_control(
 
         array(
 
-            'label' => '3rd Icon Upload - Default phone',
+            'label' => 'Replace 3rd Icon - Default phone',
 
-            'section' => 'trepi_section_one',
+            'section' => 'trepi_section_three',
 
             'settings' => 'phone-upload'
 
@@ -465,9 +626,9 @@ $wp_customize->add_control(
 
         'type' => 'radio',
 
-        'label' => '3rd Icon Turn off',
+        'label' => 'Remove 3rd Icon',
 
-        'section' => 'trepi_section_one',
+        'section' => 'trepi_section_three',
 
         'choices' => array(
 
@@ -499,9 +660,9 @@ $wp_customize->add_control(
 
         array(
 
-            'label' => '4th Icon Upload - Default Contact',
+            'label' => 'Replace 4th Icon - Default Contact',
 
-            'section' => 'trepi_section_one',
+            'section' => 'trepi_section_four',
 
             'settings' => 'contact-upload'
 
@@ -535,9 +696,9 @@ $wp_customize->add_control(
 
         'type' => 'radio',
 
-        'label' => '4th Icon Turn off',
+        'label' => 'Remove 4th Icon',
 
-        'section' => 'trepi_section_one',
+        'section' => 'trepi_section_four',
 
         'choices' => array(
 
@@ -571,9 +732,9 @@ $wp_customize->add_control(
 
         array(
 
-            'label' => '5th Icon Upload - Default Info',
+            'label' => 'Replace 5th Icon - Default Info',
 
-            'section' => 'trepi_section_one',
+            'section' => 'trepi_section_five',
 
             'settings' => 'info-upload'
 
@@ -607,9 +768,9 @@ $wp_customize->add_control(
 
         'type' => 'radio',
 
-        'label' => '5th Icon Turn off',
+        'label' => 'Remove 5th Icon',
 
-        'section' => 'trepi_section_one',
+        'section' => 'trepi_section_five',
 
         'choices' => array(
 
@@ -641,9 +802,9 @@ $wp_customize->add_control(
 
         array(
 
-            'label' => '6th Icon Upload - Default Menu',
+            'label' => 'Replace 6th Icon - Default Menu',
 
-            'section' => 'trepi_section_one',
+            'section' => 'trepi_section_six',
 
             'settings' => 'menu-upload'
 
@@ -675,9 +836,9 @@ $wp_customize->add_control(
 
         'type' => 'radio',
 
-        'label' => '6th Icon Turn off',
+        'label' => 'Remove 6th Icon',
 
-        'section' => 'trepi_section_one',
+        'section' => 'trepi_section_six',
 
         'choices' => array(
 
