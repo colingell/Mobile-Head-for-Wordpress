@@ -62,5 +62,19 @@ add_action('wp_head', 'hook_head_trepidation');
 function hook_head_trepidation() {    ?>
 		
  <?php echo get_theme_mod( 'header_add_one', '' ); 
+
+// Extra add to head for icons styles
+?>
+<style type="text/css" >
+.mobileIcon i.fa { color:<?php echo get_theme_mod( 'icon-color-setting', '' ); ?> }
+.mobileIcon i.fa:hover { color:<?php echo get_theme_mod( 'icon-color-setting-hover', '' ); ?> }
+.hideme .mobileNavigation { display:<?php echo get_theme_mod( 'trepi_nav_off', '' ); ?> }
+@media (min-width: <?php echo get_theme_mod( 'trepi_width_hide', '' ); ?>px)
+{ .hideme .mobileNavigation 
+{
+display: none !important;
+} }
+</style>
+<?php
 }
 ?>

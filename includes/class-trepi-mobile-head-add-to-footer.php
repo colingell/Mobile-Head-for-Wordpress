@@ -33,13 +33,13 @@ $wp_customize->add_control(
 
     array(
 
-        'label' => 'Add Code/Text to Footer',
+        'label' => 'Add Code to Footer',
 
         'section' => 'trepi_section_footer',
 
         'type' => 'textarea',
 
-        'sanitize_callback' => 'example_sanitize_text',
+
 
     )
 
@@ -48,5 +48,14 @@ $wp_customize->add_control(
 }
 
 add_action( 'customize_register', 'footer_customizer' );
+
+
+/**
+ * Create the area where code created can be added to the footer of wordpress
+ */
+
+
+add_action('wp_footer', 'hook_footer_trepi', 1);
+function hook_footer_trepi() { echo get_theme_mod( 'footer_add_one', '' ); }
 
 ?>

@@ -45,7 +45,7 @@ $wp_customize->add_panel( 'panel_Mobile_Nav', array(
 
             'title' => 'Icon 1 - Home',
 
-            'description' => 'This is a settings section.',
+            'description' => 'Change and alter icon 1 and link.',
 
             'priority' => 1,
             
@@ -65,7 +65,7 @@ $wp_customize->add_panel( 'panel_Mobile_Nav', array(
 
             'title' => 'Icon 2 - Email',
 
-            'description' => 'This is a settings section.',
+            'description' => 'Change and alter icon 2 and link.',
 
             'priority' => 2,
             
@@ -84,7 +84,7 @@ $wp_customize->add_panel( 'panel_Mobile_Nav', array(
 
             'title' => 'Icon 3 - Phone',
 
-            'description' => 'This is a settings section.',
+            'description' => 'Change and alter icon 3 and link.',
 
             'priority' => 3,
             
@@ -103,7 +103,7 @@ $wp_customize->add_panel( 'panel_Mobile_Nav', array(
 
             'title' => 'Icon 4 - Contact',
 
-            'description' => 'This is a settings section.',
+            'description' => 'Change and alter icon 4 and link.',
 
             'priority' => 4,
             
@@ -123,7 +123,7 @@ $wp_customize->add_panel( 'panel_Mobile_Nav', array(
 
             'title' => 'Icon 5 - Info',
 
-            'description' => 'This is a settings section.',
+            'description' => 'Change and alter icon 5 and link.',
 
             'priority' => 5,
             
@@ -142,7 +142,7 @@ $wp_customize->add_panel( 'panel_Mobile_Nav', array(
 
             'title' => 'Icon 6 - Menu',
 
-            'description' => 'This is a settings section.',
+            'description' => 'Change and alter icon 6 and link.',
 
             'priority' => 6,
             
@@ -160,7 +160,7 @@ $wp_customize->add_panel( 'panel_Mobile_Nav', array(
 
             'title' => 'Navigation Colours',
 
-            'description' => 'This is a settings section.',
+            'description' => 'Change colours of Mobile Navigation Bar.',
 
             'priority' => 7,
             
@@ -168,7 +168,25 @@ $wp_customize->add_panel( 'panel_Mobile_Nav', array(
 
         )
 
-    );  
+    ); 
+
+    $wp_customize->add_section(
+
+        'trepi_display_width',
+
+        array(
+
+            'title' => 'Display and Hide',
+
+            'description' => 'Screen width to show and hide Mobile Navigation',
+
+            'priority' => 7,
+            
+            'panel'  => 'panel_Mobile_Nav',
+
+        )
+
+    ); 
 
     $wp_customize->add_section(
 
@@ -176,9 +194,9 @@ $wp_customize->add_panel( 'panel_Mobile_Nav', array(
 
         array(
 
-            'title' => 'Add Custome code to <head> tags',
+            'title' => 'Add Custom code to <head> tags',
 
-            'description' => 'This is a settings section.',
+            'description' => 'Add code between the <head></head> tags.',
 
             'priority' => 8,
             
@@ -194,9 +212,9 @@ $wp_customize->add_panel( 'panel_Mobile_Nav', array(
 
         array(
 
-            'title' => 'Add Custom code or text to footer',
+            'title' => 'Add Custom code to footer',
 
-            'description' => 'This is a settings section.',
+            'description' => 'Add code to the footer area of wordpress.',
 
             'priority' => 9,
             
@@ -237,7 +255,7 @@ $wp_customize->add_control(
 
         'section' => 'trepi_section_two',
 
-        'type' => 'text',
+        'type' => 'email',
 
         'sanitize_callback' => 'is_email',
 
@@ -273,7 +291,7 @@ $wp_customize->add_control(
 
         'section' => 'trepi_section_three',
 
-        'type' => 'text',
+        'type' => 'number',
 
         'sanitize_callback' => 'esc_textarea',
 
@@ -282,7 +300,7 @@ $wp_customize->add_control(
 );
 
      //  ============================
-    //  = Page Dropdown             =
+    //  = Contact Page            =
     //  =============================
 
     $wp_customize->add_setting('trepi_contact_page_options', array(
@@ -328,9 +346,9 @@ $wp_customize->add_control(
 
     array(
 
-        'type' => 'text', 
+        'type' => 'url', 
 
-        'label' => 'Override the Contact Page link:', 
+        'label' => 'Override the Contact Page link: (include http://) Note* not previewable', 
 
         'section' => 'trepi_section_four', 
 
@@ -393,9 +411,9 @@ $wp_customize->add_control(
 
     array(
 
-        'type' => 'text', 
+        'type' => 'url', 
 
-        'label' => 'Override the Info Page link:', 
+        'label' => 'Override the Info Page link: (include http://) Note* not previewable', 
 
         'section' => 'trepi_section_five', 
 
@@ -437,6 +455,84 @@ $wp_customize->add_control(
             'section' => 'trepi_section_colours',
 
             'settings' => 'color-setting',
+
+        )
+
+    )
+
+);
+
+
+$wp_customize->add_setting(
+
+    'icon-color-setting',
+
+    array(
+
+        'default' => '#ddd',
+
+        'sanitize_callback' => 'sanitize_hex_color',
+
+    )
+
+);
+
+
+
+$wp_customize->add_control(
+
+    new WP_Customize_Color_Control(
+
+        $wp_customize,
+
+        'icon-color-setting',
+
+        array(
+
+            'label' => 'Icon Color',
+
+            'section' => 'trepi_section_colours',
+
+            'settings' => 'icon-color-setting',
+
+        )
+
+    )
+
+);
+
+
+$wp_customize->add_setting(
+
+    'icon-color-setting-hover',
+
+    array(
+
+        'default' => '#fdfdfd',
+
+        'sanitize_callback' => 'sanitize_hex_color',
+
+    )
+
+);
+
+
+
+$wp_customize->add_control(
+
+    new WP_Customize_Color_Control(
+
+        $wp_customize,
+
+        'icon-color-setting-hover',
+
+        array(
+
+            'label' => 'Icon Color:Hover',
+
+            'section' => 'trepi_section_colours',
+
+            'settings' => 'icon-color-setting-hover',
 
         )
 
@@ -867,6 +963,69 @@ $wp_customize->add_control(
 );
 
 
+$wp_customize->add_setting(
+
+    'trepi_nav_off',
+
+    array(
+
+        'default' => 'inline-block',
+
+    )
+
+);
+
+
+$wp_customize->add_control(
+
+    'trepi_nav_off',
+
+    array(
+        'type' => 'radio',
+        'label' => 'Hide Mobile Navigation',
+        'section' => 'trepi_display_width',
+        'choices' => array(
+            'inline-block; *display:block' => 'Turn On Mobile Navigation Bar',
+            'none' => 'Turn Off Mobile Navigation Bar',        
+        ),
+    )
+);
+
+
+
+
+
+$wp_customize->add_setting(
+
+    'trepi_width_hide',
+
+    array(
+
+        'default' => '600',
+
+    )
+
+);
+
+
+
+$wp_customize->add_control(
+
+    'trepi_width_hide',
+
+    array(
+
+        'label' => 'Max width in px to display mobile navigation bar',
+
+        'section' => 'trepi_display_width',
+
+        'type' => 'number',
+
+        'sanitize_callback' => 'esc_textarea',
+
+    )
+
+);
 
 }
 
