@@ -5,6 +5,18 @@
 
 
 
+/**
+ * Adds the Customize page to the WordPress admin area
+ */
+
+ 
+ 
+ 
+function trepi_mobile_head_customizer_menu() {
+    add_menu_page( 'Mobile Menu Settings', 'Mobile Menu Settings', 'edit_theme_options', 'customize.php?autofocus[panel]=panel_Mobile_Nav', '', 'dashicons-smartphone', 10 );
+}
+add_action( 'admin_menu', 'trepi_mobile_head_customizer_menu' );
+
 
 
 
@@ -31,7 +43,7 @@ $wp_customize->add_panel( 'panel_Mobile_Nav', array(
 
         array(
 
-            'title' => 'Home Icon 1',
+            'title' => 'Icon 1 - Home',
 
             'description' => 'This is a settings section.',
 
@@ -51,7 +63,7 @@ $wp_customize->add_panel( 'panel_Mobile_Nav', array(
 
         array(
 
-            'title' => 'Email Icon 2',
+            'title' => 'Icon 2 - Email',
 
             'description' => 'This is a settings section.',
 
@@ -70,7 +82,7 @@ $wp_customize->add_panel( 'panel_Mobile_Nav', array(
 
         array(
 
-            'title' => 'Phone Icon 3',
+            'title' => 'Icon 3 - Phone',
 
             'description' => 'This is a settings section.',
 
@@ -89,7 +101,7 @@ $wp_customize->add_panel( 'panel_Mobile_Nav', array(
 
         array(
 
-            'title' => 'Contact Icon 4',
+            'title' => 'Icon 4 - Contact',
 
             'description' => 'This is a settings section.',
 
@@ -109,7 +121,7 @@ $wp_customize->add_panel( 'panel_Mobile_Nav', array(
 
         array(
 
-            'title' => 'Info Icon 5',
+            'title' => 'Icon 5 - Info',
 
             'description' => 'This is a settings section.',
 
@@ -128,7 +140,7 @@ $wp_customize->add_panel( 'panel_Mobile_Nav', array(
 
         array(
 
-            'title' => 'Menu Icon 6',
+            'title' => 'Icon 6 - Menu',
 
             'description' => 'This is a settings section.',
 
