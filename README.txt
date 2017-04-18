@@ -1,114 +1,85 @@
 === Plugin Name ===
-Contributors: (this should be a list of wordpress.org userid's)
-Donate link: http://example.com/
-Tags: comments, spam
+Contributors: Colin Gell
+Donate link: http://trepidation.com/colingell
+Tags: mobile, navigation, mobile, nav, header, head, bar, navbar, tablet, responsive, customisable, customizable 
 Requires at least: 3.0.1
-Tested up to: 3.4
-Stable tag: 4.3
+Tested up to: 4.7.3
+Stable tag: 4.7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
+Creates a mobile navbar across the top of your website with telephone and email tabs which can be turned on or off at different widths, and is color customisable.
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
+Creates a mobile navigation bar across the top of your website which can be turned on or off at different widths, and is color customisable.
+Links can be specified in the customiser, and icons not required can also be removed.
+Customisable in Customiser.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
-
-A few notes about the sections above:
-
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
-
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
-
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
+**Supports**
+1. Links to upto 2 pages as icon links
+2. Dropdown hamburger/3 bars menu
+3. Home link
+4. Email link
+5. Telephone link
+6. Change icons with your uploaded images.
+7. Change colors of navbar, and default icons
+8. Change width of show and hide in px
+9. Turn on and off icons as required
+10. Add code to <head> tags
+11. Add code to footer 
 
 == Installation ==
 
 This section describes how to install the plugin and get it working.
 
-e.g.
-
-1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+1. Upload `Mobile-Head-for-Wordpress.php` to the `/wp-content/plugins/` directory
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Open up wordpress's customiser where you'll be able to edit a newly created Mobile Navigation Bar
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= Can I change the colours of the navigation bar? =
 
-An answer to that question.
+Yes, there is an option to alter the bar and, icon colours in the customiser
 
-= What about foo bar? =
+= Can change the icons? =
 
-Answer to foo bar dilemma.
+You can upload an image to change the default image i.e if you wanted a page to link to a facebook page you might want to add an image of the facebook logo.  Please note the images don't currently support a hover effect.
+
+= Can certain icons be removed if I don't need them =
+
+Yes, there is an option to turn them on and off in the customiser
+
+= Can I change the telephone or email or home icons to a web link =
+
+No, this isn't currently supported.
+
+= I've added a link in the override input field, but when I hover over the icon the cursor doesn't show =
+
+The link isn't viewable when customiser is open, however if you go to the live version of the website you should be able to see it. 
+
+= I've added a link in the override input field, but it links to a folder on my website and the page isn't available =
+
+Check you've added the http:// or https:// before the link
+
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1. /assets/screenshot-1.png
+2. /assets/screenshot-2.png
+3. /assets/screenshot-3.png
+4. /assets/screenshot-4.png
+5. /assets/screenshot-5.png
 
 == Changelog ==
 
 = 1.0 =
-* A change since the previous version.
+* First verion of this plugin.
 * Another change.
 
-= 0.5 =
-* List versions from most recent at top to oldest at bottom.
+== Hire Me ==
 
-== Upgrade Notice ==
+Send me an email at colin@trepidation.co.uk if you are interested in hiring me on any of your projects
 
-= 1.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
-
-= 0.5 =
-This version fixes a security related bug.  Upgrade immediately.
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
-
-== A brief Markdown Example ==
-
-Ordered list:
-
-1. Some feature
-1. Another feature
-1. Something else about the plugin
-
-Unordered list:
-
-* something
-* something else
-* third thing
-
-Here's a link to [WordPress](http://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
-Titles are optional, naturally.
-
-[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-            "Markdown is what the parser uses to process much of the readme file"
-
-Markdown uses email style notation for blockquotes and I've been told:
-> Asterisks for *emphasis*. Double it up  for **strong**.
-
-`<?php code(); // goes in backticks ?>`
+[markdown syntax]: http://trepidation.co.uk/colingell
