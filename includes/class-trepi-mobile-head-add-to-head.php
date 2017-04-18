@@ -66,8 +66,8 @@ function hook_head_trepidation() {    ?>
 // Extra add to head for icons styles
 ?>
 <style type="text/css" >
-.mobileIcon i.fa, .mobileIcon a { color:<?php echo get_theme_mod( 'icon-color-setting', '' ); ?> }
-.mobileIcon i.fa:hover, .mobileIcon a:hover { color:<?php echo get_theme_mod( 'icon-color-setting-hover', '' ); ?> }
+.mobileIcon i.fa, .mobileIcon a { color:<?php echo get_theme_mod( 'icon-color-setting', '#ddd' ); ?> }
+.mobileIcon i.fa:hover, .mobileIcon a:hover { color:<?php echo get_theme_mod( 'icon-color-setting-hover', '#fdfdfd' ); ?> }
 
 .hideme .mobileNavigation { display:<?php echo get_theme_mod( 'trepi_nav_off', '' ); ?> }
 <?php 
