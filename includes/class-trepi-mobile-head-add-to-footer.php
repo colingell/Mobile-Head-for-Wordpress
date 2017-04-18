@@ -57,5 +57,3 @@ add_action( 'customize_register', 'footer_customizer' );
 
 add_action('wp_footer', 'hook_footer_trepi', 1);
 function hook_footer_trepi() { echo get_theme_mod( 'footer_add_one', '' ); }
-
-?>

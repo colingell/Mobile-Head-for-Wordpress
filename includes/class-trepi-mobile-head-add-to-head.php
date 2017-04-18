@@ -66,15 +66,31 @@ function hook_head_trepidation() {    ?>
 // Extra add to head for icons styles
 ?>
 <style type="text/css" >
-.mobileIcon i.fa { color:<?php echo get_theme_mod( 'icon-color-setting', '' ); ?> }
-.mobileIcon i.fa:hover { color:<?php echo get_theme_mod( 'icon-color-setting-hover', '' ); ?> }
+.mobileIcon i.fa, .mobileIcon a { color:<?php echo get_theme_mod( 'icon-color-setting', '' ); ?> }
+.mobileIcon i.fa:hover, .mobileIcon a:hover { color:<?php echo get_theme_mod( 'icon-color-setting-hover', '' ); ?> }
+
 .hideme .mobileNavigation { display:<?php echo get_theme_mod( 'trepi_nav_off', '' ); ?> }
+<?php 
+if (get_theme_mod ( 'trepi_nav_off') == 'none'  ) 
+{
+?>
+body
+{margin-top: 0 !important;}
+<?php
+}
+?>
 @media (min-width: <?php echo get_theme_mod( 'trepi_width_hide', '' ); ?>px)
 { .hideme .mobileNavigation 
 {
 display: none !important;
+} 
+}
+@media (max-width: <?php echo get_theme_mod( 'trepi_width_hide', '' ); ?>px)
+{ body 
+{
+margin-top: 52px;
 } }
+
 </style>
 <?php
 }
-?>

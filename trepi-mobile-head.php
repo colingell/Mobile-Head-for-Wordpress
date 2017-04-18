@@ -115,17 +115,9 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-trepi-mobile-head.php';
 
 function run_trepi_mobile_head() {
 
-
-
 	$plugin = new trepi_mobile_head();
 
 	$plugin->run();
 
-
-
 }
-
 run_trepi_mobile_head();
-
-?>
-

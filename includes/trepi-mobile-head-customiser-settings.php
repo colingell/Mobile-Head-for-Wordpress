@@ -2,14 +2,6 @@
 /**
  * Adds the individual sections, settings, and controls to the theme customizer
  */
-
-
-
-/**
- * Adds the Customize page to the WordPress admin area
- */
-
- 
  
  
 function trepi_mobile_head_customizer_menu() {
@@ -426,7 +418,7 @@ $wp_customize->add_control(
 
 $wp_customize->add_setting(
 
-    'color-setting',
+    'color-setting-bar',
 
     array(
 
@@ -446,7 +438,7 @@ $wp_customize->add_control(
 
         $wp_customize,
 
-        'color-setting',
+        'color-setting-bar',
 
         array(
 
@@ -454,7 +446,7 @@ $wp_customize->add_control(
 
             'section' => 'trepi_section_colours',
 
-            'settings' => 'color-setting',
+            'settings' => 'color-setting-bar',
 
         )
 
@@ -1030,13 +1022,3 @@ $wp_customize->add_control(
 }
 
 add_action( 'customize_register', 'trepi_customizer' );
-
-
-
-
-
-
-
-
-
-?>
