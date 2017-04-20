@@ -7,7 +7,7 @@
 
 
 
-function footer_customizer( $wp_customize ) {
+function trepi_footer_customizer( $wp_customize ) {
 
 
 
@@ -15,7 +15,7 @@ function footer_customizer( $wp_customize ) {
 
 $wp_customize->add_setting(
 
-    'footer_add_one',
+    'trepi_footer_add_one',
 
     array(
 
@@ -29,7 +29,7 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 
-    'footer_add_one',
+    'trepi_footer_add_one',
 
     array(
 
@@ -47,7 +47,7 @@ $wp_customize->add_control(
 
 }
 
-add_action( 'customize_register', 'footer_customizer' );
+add_action( 'customize_register', 'trepi_footer_customizer' );
 
 
 /**
@@ -55,5 +55,5 @@ add_action( 'customize_register', 'footer_customizer' );
  */
 
 
-add_action('wp_footer', 'hook_footer_trepi', 1);
-function hook_footer_trepi() { echo get_theme_mod( 'footer_add_one', '' ); }
+add_action('wp_footer', 'trepi_hook_footer_trepi', 1);
+function trepi_hook_footer_trepi() { echo get_theme_mod( 'trepi_footer_add_one', '' ); }

@@ -5,9 +5,9 @@
 
 
 
-function header_customizer( $wp_customize ) {
+function trepi_header_customizer( $wp_customize ) {
     $wp_customize->add_section(
-        'header_add',
+        'trepi_header_add',
         array(
             'title' => 'Add Code between <head></head>',
             'description' => 'Code can be inserted into the header here.',
@@ -19,7 +19,7 @@ function header_customizer( $wp_customize ) {
 
 $wp_customize->add_setting(
 
-    'header_add_one',
+    'trepi_header_add_one',
 
     array(
 
@@ -33,7 +33,7 @@ $wp_customize->add_setting(
 
 $wp_customize->add_control(
 
-    'header_add_one',
+    'trepi_header_add_one',
 
     array(
 
@@ -43,7 +43,7 @@ $wp_customize->add_control(
 
         'type' => 'textarea',
 
-        'sanitize_callback' => 'example_sanitize_text',
+        'sanitize_callback' => 'trepi_sanitize_text',
 
     )
 
@@ -51,23 +51,23 @@ $wp_customize->add_control(
 
 }
 
-add_action( 'customize_register', 'header_customizer' );
+add_action( 'customize_register', 'trepi_header_customizer' );
 
 /**
  * Create the area where code created can be added to the head of wordpress
  */
 
 
-add_action('wp_head', 'hook_head_trepidation');
-function hook_head_trepidation() {    ?>
+add_action('wp_head', 'trepi_hook_head_trepidation');
+function trepi_hook_head_trepidation() {    ?>
 		
- <?php echo get_theme_mod( 'header_add_one', '' ); 
+ <?php echo get_theme_mod( 'trepi_header_add_one', '' ); 
 
 // Extra add to head for icons styles
 ?>
 <style type="text/css" >
-.mobileIcon i.fa, .mobileIcon a { color:<?php echo get_theme_mod( 'icon-color-setting', '#ddd' ); ?> }
-.mobileIcon i.fa:hover, .mobileIcon a:hover { color:<?php echo get_theme_mod( 'icon-color-setting-hover', '#fdfdfd' ); ?> }
+.mobileIcon i.fa, .mobileIcon a { color:<?php echo get_theme_mod( 'trepi-icon-color-setting', '#ddd' ); ?> }
+.mobileIcon i.fa:hover, .mobileIcon a:hover { color:<?php echo get_theme_mod( 'trepi-icon-color-setting-hover', '#fdfdfd' ); ?> }
 
 .hideme .mobileNavigation { display:<?php echo get_theme_mod( 'trepi_nav_off', '' ); ?> }
 <?php 
