@@ -6,7 +6,6 @@ function trepi_hook_to_after_body() { ?>
 
 <div class="hideme">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class="mobileNavigation" style="background-color:<?php echo get_theme_mod( 'trepi-color-setting-bar'); ?>;">
 
@@ -105,10 +104,9 @@ function trepi_hook_to_after_body() { ?>
 </div><!-- #icon6 -->
 
 
- 
 
 
-<div style="display: none; position:absolute; top:52px;  width:318px; margin:0 auto;" id="trepdropmenudown" class="dropdown-menu" >
+<div style="display: none; position:absolute; top:52px;  width:318px; max-width: 100%; margin:0 auto;" id="trepdropmenudown" class="dropdown-menu" >
 <div style="position: relative; float: right;">
 <div id="droptriangle" style="border-color: transparent transparent <?php if(get_theme_mod('trepi-color-setting-bar')) 
 { echo get_theme_mod( 'trepi-color-setting-bar'); } else { ?> #1b2021; <?php } ?> "> </div>
@@ -116,12 +114,6 @@ function trepi_hook_to_after_body() { ?>
 </div><!-- #liholder -->
 </div>
 </div>
-<script type="text/javascript">
-function trepitogglediv(id) {
-    var div = document.getElementById(id);
-    div.style.display = div.style.display == "block" ? "none" : "block";
-}
-</script>
 
 </div><!-- .mobileContainer-->  
 

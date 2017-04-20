@@ -76,8 +76,11 @@ class trepi_mobile_head_Public {
 		 */
 
 		wp_enqueue_style( $this->trepi_mobile_head, plugin_dir_url( __FILE__ ) . 'css/trepi-mobile-head-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->trepi_mobile_head, plugin_dir_url( __FILE__ ) . '', array(), null, true);
 
 	}
+
+
 
 	/**
 	 * Register the JavaScript for the public-facing side of the site.
@@ -98,8 +101,23 @@ class trepi_mobile_head_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->trepi_mobile_head, plugin_dir_url( __FILE__ ) . 'js/trepi-mobile-head-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->trepi_mobile_head, plugin_dir_url( __FILE__ ) . 'js/trepi-menu.js', array( 'jquery' ), $this->version, false );
+
 }
 
 
 }
+
+
+	/**
+	 * Enqueue Font Awesome.
+	 *
+	 * @since    1.0.0
+	 */
+
+
+                 //enqueues our external font awesome stylesheet
+                 function enqueue_trepi_required_fa_stylesheets(){
+	         wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'); 
+                  }
+                 add_action('wp_enqueue_scripts','enqueue_trepi_required_fa_stylesheets');
